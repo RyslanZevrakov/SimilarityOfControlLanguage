@@ -27,6 +27,7 @@ public class ListOfUsers {
     }
 
     public void insertValues(String value) {
+        value = value.replaceAll(" ", "");
         System.out.println(value);
     }
 
