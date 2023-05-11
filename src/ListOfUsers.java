@@ -6,8 +6,17 @@ public class ListOfUsers {
     }
 
     public List<Map<String, Object>> execute(String request) throws Exception {
-      switch (request){
-          case "INSERT" -> insertValues();
+        StringBuilder action = new StringBuilder();
+        StringBuilder value = new StringBuilder();
+        for (int i = 0; i != request.length();i++){
+            if (i < 6){
+                action.append(request.charAt(i));
+            } else {
+                value.append(request.charAt(i));
+            }
+        }
+      switch (action.toString()){
+          case "INSERT" -> insertValues(value.toString());
           case "UPDATE" -> updateValues();
           case "DELETE" -> deleteValues();
           case "SELECT" -> selectValues();
@@ -17,8 +26,8 @@ public class ListOfUsers {
 
     }
 
-    public void insertValues() {
-
+    public void insertValues(String value) {
+        System.out.println(value);
     }
 
     public void updateValues() {
@@ -32,4 +41,7 @@ public class ListOfUsers {
     public void selectValues() {
 
     }
+
+
+
 }
